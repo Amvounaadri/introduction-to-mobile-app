@@ -1,0 +1,1665 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');*/
+
+:root {
+    /*    --twitter-color: #50b7f5;*/
+    --twitter-color: rgb(154, 30, 30);
+    --twitter-background: #ffffff;
+ 
+    /*    --twitter-background: rgba(230, 236, 240, 0.9);*/
+}
+
+body {
+/*    font-family: 'Roboto', sans-serif;*/
+    font-family: Helvetica;
+   
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+}
+
+/*--------------------------------------------------------------
+# Global Header
+--------------------------------------------------------------*/
+.grad-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: url(../images/mino.svg) #4f0c0c93 no-repeat;
+    background-size: cover;
+    padding: 10px 20px;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    opacity: 1; /* Initially visible */
+}
+
+.hidden {
+    opacity: 0; /* Fade out */
+    transform: translateY(-20px); /* Optional: move it up slightly */
+}
+
+body {
+    padding-top: 70px; /* Adjust to match the header's height */
+}
+
+
+.grad-header .header-left h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #b80e0e;
+}
+
+.grad-header .header-right {
+    display: flex;
+    align-items: center;
+}
+
+.grad-header .header-right .header-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.grad-header .header-right .header-icons li {
+    margin-right: 15px; /* Space between icons */
+}
+
+.grad-header .header-right .header-icons li a i {
+    font-size: 24px;
+    color: #b80e0e; /* Same color as the header text */
+}
+
+.grad-header .header-right .header-logo {
+    width: 80px;
+    height: 50px;
+}
+.grad-header .header-right .header-icons li {
+    margin-right: 20px; /* Space between icons */
+}
+
+.grad-header .header-right .header-icons li a i,
+.grad-header .header-right .header-icons li a span {
+    font-size: 24px;
+    color: #b80e0e; /* Same color as the header text */
+}
+
+.grad-header .header-right .header-icons li a span {
+    margin-left: 8px; /* Space between the icon and text */
+    font-size: 16px; /* Adjust the text size as needed */
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 68px) {
+    .grad-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .grad-header .header-left h1 {
+        font-size: 24px;
+    }
+
+    .grad-header .header-right {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .grad-header .header-right .header-icons {
+        justify-content: flex-start;
+    }
+
+    .grad-header .header-right .header-logo {
+        width: 60px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .grad-header .header-left h1 {
+        font-size: 20px;
+    }
+
+    .grad-header .header-right .header-icons li {
+        margin-right: 10px;
+    }
+
+    .grad-header .header-right .header-logo {
+        width: 50px;
+        height: 30px;
+    }
+}
+
+/* Index Page Header
+------------------------------*/
+.index-page .header {
+  --background-color: rgba(0, 0, 0, 0);
+}
+
+/* Index Page Header on Scroll
+------------------------------*/
+.index-page.scrolled .header {
+  --background-color: rgba(0, 0, 0, 0.8);
+}
+
+/******************************PRELOADER START********************************/
+/* Preloader with fade effect */
+.preloader.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    visibility: hidden;
+  }
+  
+  /* Preloader container */
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.256); /* Light overlay with transparency */
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* Loader image or animation */
+  #loader {
+    width: 50px; /* Adjust the size of the loader */
+    height: 50px;
+    background: url(../images/load.svg) no-repeat center center;
+    background-size: contain; /* Ensures the loader fits properly */
+  }
+  /* Preloader styles (optional) */
+.preloader {
+    display: none; /* Initially hidden */
+    text-align: center;
+    width: 50px; /* Adjust the size of the loader */
+    height: 50px;
+    background: url(../images/load.svg) no-repeat center center;
+    background-size: contain;
+}
+
+/* No job found message */
+.no-jobs-found {
+    text-align: center;
+    color: #ff0000;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/******************************PRELOADER END**********************************/
+
+
+textarea {
+    resize: none;
+    outline: none;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--twitter-background);
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.fa-twitter {
+    color: var(--twitter-color);
+    font-size: 20px !important;
+}
+
+.grid-container {
+    width: 100%;
+    max-width: auto;
+    display: grid;
+
+    grid-template-columns: 0.5fr 1.4fr 0.7fr;
+    grid-template-rows: 1.2fr 1.3fr 1fr;
+    grid-gap: 5px 5px;
+    grid-template-areas:
+        "sidebar main right_sidebar"
+        "sidebar main right_sidebar"
+        "sidebar main right_sidebar";
+}
+
+.main {
+    grid-area: main;
+    width: 100%;
+    max-width: 850px;
+    
+}
+
+.right_sidebar {
+    grid-area: right_sidebar;
+    width: 100%;
+    max-width: 400px;
+    
+}
+
+/*------------chatbox------------*/
+/* Chat window styles */
+.chat-window {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 360px;
+    height: 550px; /* Fixed height for the chat window */
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    z-index: 9999;
+    border-radius: 15px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Header of the chatbox */
+.chat-header {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Close button styling */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Chat body where messages will be displayed */
+.chat-body {
+    display: flex; /* Set to flexbox */
+    flex-direction: column; /* Stack messages vertically */
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #ffd5d5;
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    height: calc(100% - 120px); /* Height calculation: total height minus header and footer */
+}
+
+/* Each message displayed */
+#chat-messages {
+    list-style: none;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    display: flex; /* Use flexbox to arrange messages */
+    flex-direction: column; /* Stack messages vertically */
+}
+
+/* User message styles (right aligned) */
+.user-message {
+    background-color: #b8ff82; /* Light green background */
+    color: black; /* Text color */
+    padding: 10px; /* Padding inside the bubble */
+    border-radius: 15px; /* Rounded corners */
+    max-width: 70%; /* Limit width */
+    margin: 5px 0; /* Margin between messages */
+    align-self: flex-end; /* Align to the right */
+    position: relative; /* For pseudo-element */
+}
+
+/* Friend message styles (left aligned) */
+.friend-message {
+    background-color: rgb(251, 255, 122); /* White background */
+    color: black; /* Text color */
+    padding: 10px; /* Padding inside the bubble */
+    border-radius: 15px; /* Rounded corners */
+    max-width: 70%; /* Limit width */
+    margin: 5px 0; /* Margin between messages */
+    align-self: flex-start; /* Align to the left */
+    position: relative; /* For pseudo-element */
+}
+
+/* Chat footer for input and send button */
+.chat-footer {
+    display: flex;
+    padding: 10px;
+    background-color: #ef877f;
+}
+
+/* Input box */
+#chat-input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Send button styling */
+.send-btn {
+    margin-left: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+/* Message icon styles (when chat window is minimized) */
+.message-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #dd3434;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+/* Chat window animation */
+.chat-window {
+    transition: transform 0.3s ease;
+}
+
+
+
+/* Base styles for the friends list */
+.friends-list {
+    max-width: 600px; /* Limits the width of the list */
+    margin: 0 auto; /* Centers the list in the container */
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for visibility */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.friends-list h2 {
+    text-align: center; /* Centers the header */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+.friends-list ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Reset padding */
+}
+
+.friends-list li {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between image and button */
+    padding: 10px; /* Space around each item */
+    border-bottom: 1px solid #e0e0e0; /* Divider between items */
+}
+
+.friends-list li:last-child {
+    border-bottom: none; /* Remove bottom border from the last item */
+}
+
+.friends-list img {
+    width: 40px; /* Image width */
+    height: 40px; /* Image height */
+    border-radius: 50%; /* Circular image */
+    margin-right: 10px; /* Space between image and text */
+}
+
+/* Button styles */
+.message-btn {
+    background-color: #ff4b4b; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded button corners */
+    padding: 8px 12px; /* Button padding */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.message-btn:hover {
+    background-color: #b30000; /* Darker blue on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .friends-list {
+        padding: 15px; /* Reduce padding on small screens */
+    }
+
+    .friends-list li {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .friends-list img {
+        margin-right: 0; /* Remove margin on small screens */
+        margin-bottom: 10px; /* Add space below image */
+    }
+
+    .message-btn {
+        width: 100%; /* Full width button */
+        margin-top: 5px; /* Space above button */
+    }
+}
+
+/*--------------------*/
+.user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 15px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    max-height: 430px; /* Set your desired maximum height */
+    overflow-y: auto;  /* Enables vertical scrolling if content exceeds max-height */
+}
+
+.user-list .media-inner {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eaeaea; /* Optional: Add a separator */
+}
+
+.user-list .media-inner img {
+    margin-right: 10px;
+}
+
+/*--------------------*/
+
+.page_title {
+    font-weight: 900;
+    font-size: 20px;
+    padding: 1px 10px;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    font-size: 2em; /* Large font size for the title */
+    margin-bottom: 20px; /* Space below the title */
+    text-align: center; /* Center align the title */
+}
+
+
+.dropbtn {
+    color: #c6cacc;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown i,
+.dropdown-content span {
+    color: rgb(255, 0, 0);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #e6e6e6;
+}
+
+.dropdown:hover,
+.dropdown-content {
+    display: block;
+}
+
+@media screen and (max-width: 996px) {
+    .sidebar ul li {
+        text-align: center;
+        padding: 15px 10px;
+        display: block;
+    }
+
+    .sidebar ul li a i {
+        font-size: 26px;
+    }
+
+    .sidebar ul li span,
+    .sidebar_tweet,
+    .right_sidebar {
+        display: none;
+    }
+
+    .grid-container {
+        grid-template-columns: 0.3fr 1.7fr;
+        max-width: 800px;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "sidebar main ."
+            "sidebar main .";
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        
+    }
+
+    .main {
+        grid-area: main;
+    }
+
+}
+
+/* Container for the Company Dashboard */
+.company-dashboard {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Animated Message */
+.animated-message {
+    font-size: 24px;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out infinite alternate;
+}
+
+/* Keyframes for animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* -------------------------------Job Posting Box--------------------------- */
+/* Base styles for the Company Dashboard */
+.company-dashboard {
+    background-color: #6b2626; /* Light background for contrast */
+    padding: 20px; /* Padding around the title */
+    text-align: center; /* Center align the title */
+}
+
+.animated-message {
+    font-size: 3em; /* Larger font size for the title */
+    color: #111111; /* Dark color for the title text */
+    margin: 5; /* Remove default margin */
+}
+
+/* Styles for the job posting box */
+.job_posting_box {
+    display: flex; /* Use flexbox for layout */
+    align-items: flex-start; /* Align items at the start */
+    padding: 20px; /* Padding inside the box */
+    border: 2px solid #d25b5b; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ffffff; /* White background for the box */
+    margin: 5px; /* Margin around the box */
+}
+
+/* Profile image styles */
+.left-tweet {
+    margin-right: 15px; /* Space between image and text */
+}
+
+.profile-image {
+    width: 73px; /* Fixed width */
+    height: 73px; /* Fixed height */
+    border-radius: 50%; /* Circular image */
+}
+
+/* Job post body styles */
+.job_post_body {
+    flex: 1; /* Allow this section to take up remaining space */
+}
+
+/* Input fields styles */
+.input-field {
+    width: 100%; /* Full width for input fields */
+    padding: 10px; /* Padding inside input fields */
+    margin: 10px 0; /* Margin for spacing between fields */
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+}
+
+/* Button styles */
+.post-job-button {
+    background-color: #ff0000; /* Bootstrap primary color */
+    color: white; /* White text */
+    padding: 10px 15px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.post-job-button:hover {
+    background-color: #b30000; /* Darker shade on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .job_posting_box {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .left-tweet {
+        margin: 0 0 15px 0; /* Remove right margin and add bottom margin */
+    }
+
+    .input-field {
+        font-size: 14px; /* Smaller font size on mobile */
+    }
+
+    .post-job-button {
+        width: 100%; /* Full width for button on mobile */
+    }
+}
+
+/*-------------------------------------------------------------------------*/
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff; /* Light gray background for contrast */ 
+    
+}
+
+.job-post {
+    background-color: white; /* White background for each card */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    margin: 30px 0; /* Space between cards */
+    padding: 20px; /* Inner padding */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition effects */
+
+}
+.job-post-header {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    padding: 20px;
+}
+.job-post-img {
+    margin-right: 5px; /* Space between image and text */
+}
+
+.job-post-img img {
+    width: 70px; /* Set a fixed width for the profile image */
+    height: 70px; /* Set a fixed height for the profile image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+}
+
+.job-post-info {
+    flex-grow: 1; /* Allow the info section to take available space */
+}
+
+.job-post-info span {
+    display: block; /* Stack info items vertically */
+    margin-bottom: 5px; /* Space between info items */
+}
+
+.job-post-info a {
+    font-weight: bold; /* Make the username bold */
+    color: #333; /* Change text color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Job Post Hover Effect */
+.job-post:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Job Title */
+.job-post h3 {
+    margin: 0 0 10px; /* Bottom margin for spacing */
+    color: #242424; /* Dark text color */
+}
+
+/* Job Description */
+.job-post p {
+    color: #2b2b2b; /* Slightly lighter text for description */
+    line-height: 1.6; /* Improved line spacing for readability */
+}
+
+/* Skills Required */
+.job-post p strong {
+    color: #000; /* Strong color for emphasis */
+}
+
+/* Apply Button Styles */
+.apply-btn {
+    background-color: #d44040; /* Bootstrap Primary Color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 25px; /* Fully rounded button */
+    padding: 10px 30px; /* Padding for a comfortable click area */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Large enough text */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    float: right;
+}
+
+/* Apply Button Hover Effect */
+.apply-btn:hover {
+    background-color: #dede50; /* Darker shade on hover */
+    transform: scale(1.1); /* Slightly increase size */
+}
+
+
+
+/*----------------------##############----------------------*/
+
+/* Notification full wrapper styling */
+.notification-full-wrapper {
+    max-width: 600px; /* Maximum width of the notification cards */
+    margin: 0 auto; /* Center the wrapper */
+}
+
+/* Individual notification card styles */
+.notification-card {
+    background: #fff; /* White background for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Space between each card */
+    padding: 15px; /* Inner spacing */
+    justify-content: space-between;
+}
+
+/* Title within each notification card */
+.notification-card h2 {
+    font-size: 1.5em; /* Slightly larger size for section titles */
+    margin: 0 0 10px; /* Space below the title */
+}
+
+/* List styles */
+.notification-card ul {
+    list-style-type: square; /* Remove bullet points */
+    padding: 2; /* Remove default padding */
+    margin-left: 14px; /* Remove default margin */
+}
+
+/* List items within the notification */
+.notification-card li {
+    padding: 30px 0; /* Padding for list items */
+    border-bottom: 1px solid #ec7a7a; /* Bottom border for separation */
+}
+
+/* Remove the last border on the last item */
+.notification-card li:last-child {
+    border-bottom: none; /* No border on the last item */
+}
+
+
+/* Button styles */
+.apply-button, .reject-button {
+    width: 100px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.apply-button {
+    background-color: #ff1e00;
+    float: right;
+}
+
+.apply-button:hover {
+    background-color: #e61900;
+}
+
+.reject-button {
+    background-color: #555;
+    float: right;
+}
+
+.reject-button:hover {
+    background-color: #333;
+}
+
+/* Ensure buttons are aligned properly below one another */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.application-item {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+/* Button hover effect */
+.apply-button:hover {
+    background-color: #b3a700; /* Darker shade for hover effect */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .page_title {
+        font-size: 1.5em; /* Smaller title on mobile */
+    }
+
+    .notification-full-wrapper {
+        padding: 10px; /* Add padding on mobile */
+    }
+
+    .notification-card {
+        padding: 10px; /* Less padding on mobile */
+    }
+
+    .apply-button {
+        width: 100%; /* Full-width button on mobile */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .job-post {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .apply-btn {
+        padding: 8px 15px; /* Adjust button padding */
+        font-size: 14px; /* Slightly smaller text */
+    }
+}
+
+@media (max-width: 400px) {
+    .job-post h3 {
+        font-size: 18px; /* Smaller font size for titles */
+    }
+
+    .job-post p {
+        font-size: 14px; /* Smaller font size for descriptions */
+    }
+
+    .apply-btn {
+        width: 100%; /* Full width button on small screens */
+    }
+}
+
+/*----------------------add friend-------------------------------------*/
+.add-friend-btn {
+    background-color: red; /* Initial color of the button */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size of the button */
+    font-weight: bold; /* Bold font for button */
+    border: none; /* No border */
+    border-radius: 50%; /* Circular button */
+    width: 40px; /* Width of the button */
+    height: 40px; /* Height of the button */
+    text-align: center; /* Center text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    position: relative; /* Position relative for pseudo-elements */
+}
+
+.add-friend-btn:hover {
+    background-color: lightcoral; /* Change background color on hover */
+}
+
+.add-friend-btn.clicked {
+    background-color: yellow; /* Change color on click */
+}
+
+.add-friend-btn::before {
+    content: '+'; /* Initial content is a plus sign */
+    font-size: 20px; /* Size of the plus sign */
+    line-height: 40px; /* Center the content vertically */
+}
+
+.add-friend-btn.clicked::before {
+    content: '✔'; /* Change to tick sign when clicked */
+}
+
+.add-friend-btn.yellow-ticked {
+    background-color: yellow;
+    color: black;
+}
+
+.accept-friend-btn, .reject-friend-btn {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+}
+
+.accept-friend-btn {
+    background-color: green;
+    color: white;
+}
+
+.reject-friend-btn {
+    background-color: red;
+    color: white;
+}
+
+.accept-friend-btn:hover, .reject-friend-btn:hover {
+    opacity: 0.8;
+}
+/*----------------------box css-----------------------------*/
+
+/*----------------------box css---------------------------*/
+
+
+.tweet_del {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tweet_box {
+    padding: 10px 10px;
+    border-bottom: 1px solid var(--twitter-background);
+    display: flex;
+}
+
+.tweet_body {
+    width: 100%;
+}
+
+.tweet_add {
+    border-bottom: #b80e0e;
+}
+
+.tweet_header {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.tweet_name {
+    font-weight: 700;
+}
+
+.tweet_username,
+.tweet_date {
+    color: rgb(44, 41, 41);
+    font-size: 15px;
+}
+
+.tweet_header p {
+    margin-right: 5px;
+}
+
+.tweet-left img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #dc2e2e;
+    margin: 0 20px;
+}
+
+.tweet_icons {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.tweet_icons i {
+    color: #c6ccc7;
+}
+
+.tweet_icons-wrapper {
+    display: flex;
+}
+
+.tweet_icons-add {
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+
+}
+
+.button_tweet {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    background: #dc2e2e;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.button_tweet:hover {
+    background: #dc2e2e;
+}
+
+.tweet_icons-add i {
+    color: #dc2e2e;
+    font-size: 23px;
+    margin-right: 15px;
+}
+.t-s-b-inner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+
+
+/*-------------------------left-sidebar css--------------------------------*/
+
+.sidebar_tweet {
+    background-color: #b80e0e;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    text-transform: inherit;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sidebar #messagePopup {
+    cursor: pointer;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    color: #fff; /* Set the text content to white */
+    background: #000000 no-repeat;
+    padding: 55px; /* Add padding to maintain layout integrity */
+    position: sticky;
+    height: 100vh;
+    top: 0;
+    
+}
+
+.sidebar ul li {
+    text-decoration: none;
+    padding: 15px 5px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 19px;
+    display: flex;
+    align-items: left;
+}
+
+.sidebar ul li i {
+    font-size: 24px;
+    width: 15px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.sidebar ul li span {
+    text-decoration: none;
+    color: #ffffff;
+    margin-left: 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+}
+
+
+.active_menu i,
+.active_menu span {
+    color: var(--twitter-color);
+}
+
+.sidebar ul .active_menu {
+    color: var(--twitter-color);
+}
+
+.sidebar ul li .button:hover {
+    background: #b80e0e;
+}
+
+
+
+
+.sidebar ul li span:hover,
+.sidebar ul li i:hover {
+    color: var(--twitter-color);
+}
+
+.media {
+    margin-top: 70%;
+    /*    background: green;*/
+}
+
+.media h5,
+.media .media-body {
+    font-size: 15px;
+}
+
+.media .media-inner {
+    /*    background: red;*/
+    /*    padding:20px;*/
+    border-radius: 20px;
+    height: 60px;
+}
+
+/*------------------------right-sidebar css--------------------------------*/
+
+.right_sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.search-container {
+    background-color: rgba(242, 195, 195, 0.76);
+    border-radius: 20px;
+    margin-top: 25px;
+    padding: 10px;
+    margin: 5px auto;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid var(--twitter-background);
+}
+
+.search-container .search-input {
+    border: none;
+    outline: none;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.search-container .search-btn .fa {
+    color: rgb(255, 4, 4);
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.trends_box {
+    background-color: rgba(255, 255, 255, 0.477);
+    border-radius: 15px;
+    margin: 10px auto;
+    width: 100%;
+    cursor: pointer;
+}
+
+.trends_header {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #ea9a92;
+    padding: 20px 15px 10px;
+}
+
+.trend {
+    border-bottom: 1px solid #e0e5e9;
+    padding: 15px;
+}
+
+.trend:hover,
+.trends_show-more:hover {
+    background-color: rgb(231, 233, 235);
+}
+
+.trends_show-more {
+    padding: 15px;
+}
+
+.trends_show-more a {
+    color: var(--twitter-color);
+}
+
+.trends_show-more:hover {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.trends_body span {
+    font-size: 14px;
+    color: rgb(101, 119, 134);
+}
+
+.trends_body p {
+    font-weight: 700;
+}
+
+.trends_header p {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.trends_header .fa-cog {
+    color: #b80e0e;
+}
+
+
+/*----------------------------Index page------------------------------*/
+
+.main-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+.main-box .left {
+    background: url(../images/mino.svg)#4f0c0c93 no-repeat;
+    background-size: cover;
+    display: flex;
+}
+.main-box .left .items-wrapper {
+    color: #ffffff;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-box .left .items-wrapper .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*  max-width: 400px;*/
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.main-box .left .items-wrapper .item .label {
+    font-size: 18px;
+    font-weight: bold;
+}
+.main-box .left .items-wrapper .icon {
+    font-size: 35px;
+    margin-right: 10px;
+}
+
+.icon {
+    background: transparent;
+    display: inline-block;
+    font-style: normal;
+    vertical-align: baseline;
+    position: relative;
+}
+
+.icon::before {
+    display: block;
+    font-family: "edgeicons";
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon--search::before {
+    content: "\f058";
+}
+
+.icon--people::before {
+    content: "\f178";
+}
+
+.icon--reply::before {
+    content: "\f151";
+}
+
+.icon--bird::before {
+    content: "\f179";
+}
+
+.main-box .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}
+
+
+.main-box .item span {
+    font-size: 30px;
+    margin-right: 20px;
+    margin-top: -10px;
+}
+.main-box .top {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    position: relative; /* For positioning the GIF */
+    margin-bottom: 10%;
+}
+.logo-girsb {
+    width: auto; /* Specify your desired width */
+    height: 100px; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space between GIF and text */
+    justify-content: space-around;
+}
+
+.logo-gif {
+    width: auto; /* Specify your desired width */
+    height: 250px; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space between GIF and text */
+    justify-content: center;
+}
+
+.logo-gifff {
+    width: 70px; /* Specify your desired width */
+    height: 70px; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Space between GIF and text */
+    justify-content: center;
+}
+
+.main-box .middle {
+    height: auto;
+    width: 70%;
+    margin: auto;
+    margin-top: 20%;
+/*    background: green;*/
+}
+
+.main-box .middle h1 {
+    font-size: 40px;
+    line-height: 50px;
+   
+}
+
+.main-box .middle span {
+    font-size: 27px;
+}
+
+
+.main-box .middle .btn-sign-up {
+    display: block;
+    margin-bottom: 15px;
+    background-color: #f21d1d;
+    border: 1px solid #f21d1d;
+    color: #fff;
+    border-radius: 100px;
+    padding: 6px 16px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.main-box .middle .btn-login {
+    display: block;
+    width: auto;
+    text-align: center;
+}
+
+.main-box .middle .icon.icon--bird {
+    color: #f21d1d;
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+
+.input[type="text"] {
+  border: 1px solid #e6ecf0;
+  border-radius: 3px;
+  padding: 12px;
+  display: block;
+}
+
+.input-group {
+    margin-right: 12px;
+}
+
+.forgot-password {
+    color: #ea2525;
+    font-size: 14px;
+}
+
+.btn-login {
+    background-color: #fff;
+    border: 1px solid #981212;
+    color: #901515;
+    border-radius: 100px;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 20px;
+    box-sizing: border-box;
+    width: auto;
+    height: 44px;
+    width: 70px;
+    font-weight: bold;
+}
+
+.btn-login:hover {
+    background-color: #eaf5fd;
+    color: #a00b0b;
+}
+
+.footer .nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+}
+
+.footer .nav ul li {
+    margin-right: 15px;
+    color: #aab8c2;
+    font-size: 12px;
+}
+
+.signup-form {
+    width: 80%;
+    height: auto;
+/*    background: pink;*/
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 50px;
+
+}
+
+.signup-form .form-control {
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+.signup-form .new-btn {
+    height: 45px;
+    width: 160px;
+    font-size: 20px;
+}
+
+.top .form-control {
+    border-color: rgb(196, 207, 214);
+    border-radius: 10px;
+}
+
+.top .form-control:focus {
+    border: 3px solid;
+    border-color: var(--twitter-color);
+    box-shadow: none;
+}
+
+.signup-form .form-control {
+    border-color: rgb(196, 207, 214);
+}
+
+.signup-form .form-control:focus {
+    border: 3px solid;
+    border-color: var(--twitter-color);
+    box-shadow: none;
+}
+
+.fa-twitter:before {
+    content: "\f099";
+    font-size: 54px;
+}
+
+/* Popup Background */
+.popup-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Popup Content */
+.user-details-content {
+    padding: 20px;
+    width: 80%;
+    max-width: 900px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1001;
+    background: white; /* Ensure the background is white */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+/* Close Button */
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* User Left Side */
+.user-left {
+    width: 45%; /* Adjusted to fit the layout */
+    text-align: center;
+}
+
+.user-cover {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: -50px;
+    border: 3px solid #474747;
+}
+
+.user-left h3, .user-left p, .user-left a {
+    margin: 10px 0;
+}
+
+/* User Right Side */
+.user-right {
+    width: 50%; /* Adjusted to fit the layout */
+    padding-left: 20px;
+}
+
+/* Job/CV styling */
+.job {
+    margin-bottom: 20px;
+}
+
+.job h5 {
+    margin: 0 0 5px;
+}
+
+.job p {
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .user-details-content {
+        flex-direction: column; /* Stack the left and right sections vertically */
+        width: 90%; /* Use more width on small screens */
+        max-width: 100%; /* Remove max-width for very small screens */
+    }
+
+    .user-left, .user-right {
+        width: 100%; /* Full width for both sections */
+        padding: 10px 0; /* Add top and bottom padding */
+    }
+
+    .user-right {
+        border-left: none; /* Remove border on small screens */
+        padding-left: 0; /* Remove left padding */
+    }
+
+    .user-image {
+        margin-top: 0; /* Reset margin for the image */
+    }
+    
+    .user-cover {
+        height: 100px; /* Adjust height for smaller screen */
+    }
+}
+
+/* Additional styles for even smaller devices */
+@media (max-width: 480px) {
+    .popup-close {
+        font-size: 20px; /* Reduce the font size of the close button */
+    }
+    
+    .user-image {
+        width: 80px; /* Smaller user image on very small screens */
+        height: 80px; /* Smaller user image on very small screens */
+    }
+}
+
+
